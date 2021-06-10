@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function ()
-{
+
+Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
     Route::get('/', 'Admin\DashboardController@index');
     Route::resource('/kategori', 'Admin\KategoriController');
     Route::resource('/tugas', 'Admin\TugasController');
+    Route::resource('/film', 'Admin\FilmController');
+    // Route::resource('/dishub', 'Admin\DishubController');
+    // Route::resource('/pegawai', 'Admin\PegawaiController');
 });

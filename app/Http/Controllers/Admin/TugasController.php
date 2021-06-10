@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Kategori;
 use App\Task;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,9 @@ class TugasController extends Controller
     public function create()
     {
         //
-        return view('admin.tugas.create');
+        $data_kategori=kategori::all(); 
+        $pagename = 'Form Input Tugas';
+        return view('admin.tugas.create' , compact('pagename', 'data_kategori'));
     }
 
     /**
@@ -41,6 +44,23 @@ class TugasController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);   
+        $request->validate([
+            'txtnama_tugas' => 'required',
+            'optionid_kategori' => 'required',
+            'txtketerangan_tugas' => 'required',
+            'radiostatus_tugas' => 'required',
+        ]);
+
+        $data_tugas = new task([
+            'nama_tugas'=> $request -> get('txtnama_tugas'),
+            'id_kategori' => $request -> get('optionid_kategori'),
+            'ket_tugas' => $request -> get('txtketerangan_tugas'),
+            'status_tugas' => $request -> get('radiostatus_tugas'),
+        ]);
+
+        $data_tugas->save();
+        return redirect('admin\tugas')->with('sukses', 'tugas berhasil disimpan');
     }
 
     /**
@@ -52,6 +72,7 @@ class TugasController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**
@@ -63,6 +84,10 @@ class TugasController extends Controller
     public function edit($id)
     {
         //
+        $data_kategori = kategori::all();
+        $pagename = 'Update Tugas';
+        $data = Task::find($id);
+        return view('admin.tugas.edit', compact('data', 'pagename', 'data_kategori'));
     }
 
     /**
@@ -75,6 +100,22 @@ class TugasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'txtnama_tugas' => 'required',
+            'optionid_kategori' => 'required',
+            'txtketerangan_tugas' => 'required',
+            'radiostatus_tugas' => 'required',
+        ]);
+
+       $tugas=Task::find($id);
+            $tugas->nama_tugas = $request -> get('txtnama_tugas');
+            $tugas->id_kategori = $request -> get('optionid_kategori');
+            $tugas->ket_tugas = $request -> get('txtketerangan_tugas');
+            $tugas->status_tugas = $request -> get('radiostatus_tugas');
+        
+
+        $tugas->save();
+        return redirect('admin\tugas')->with('sukses', 'tugas berhasil diupdate');
     }
 
     /**
@@ -86,5 +127,9 @@ class TugasController extends Controller
     public function destroy($id)
     {
         //
+        $tugas = Task::find($id);
+
+        $tugas->delete();
+        return redirect('admin\tugas')->with('sukses', 'tugas berhasil dihapus');
     }
 }

@@ -15,6 +15,9 @@
                         <a href="{{url('/admin')}}"> <i class="menu-icon fa fa-dashboard"></i>Beranda</a>
                         <a href="{{url('/admin/kategori')}}"> <i class="menu-icon fa fa-dashboard"></i>Kategori</a>
                         <a href="{{url('/admin/tugas')}}"> <i class="menu-icon fa fa-dashboard"></i>Tugas</a>
+                        <a href="{{url('/admin/film')}}"> <i class="menu-icon fa fa-dashboard"></i>Film</a>
+                        <!-- <a href="{{url('/admin/pegawai')}}"> <i class="menu-icon fa fa-dashboard"></i>Pegawai</a>
+                        <a href="{{url('/admin/dishub')}}"> <i class="menu-icon fa fa-dashboard"></i>Dishub</a> -->
                     </li>
                     <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
@@ -89,3 +92,6 @@
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
+
+
+

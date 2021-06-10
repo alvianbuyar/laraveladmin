@@ -16,7 +16,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>FILM INDONESIA</h1>
                     </div>
                 </div>
             </div>
@@ -48,32 +48,33 @@
                             @endif
                             <div class="card-header">
                                 <strong class="card-title">{{$pagename}}</strong>
-                                <a href="{{route('tugas.create')}}" class="btn btn-primary pull-right"> Tambah</a>
+                                <a href="{{route('film.create')}}" class="btn btn-primary pull-right"> Tambah</a>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Nama</th>
-                                            <th>Kategori</th>
-                                            <th>Keterangan</th>
-                                            <th>Status</th>
-                                            <th>Edit</th>
-                                            <th>Hapus</th>
+                                            <th>Film</th>
+                                            <th>Kode Film</th>
+                                            <th>Judul</th>
+                                            <th>Genre</th>
+                                            <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($data as $i=>$row)
                                         <tr>
                                             <td>{{++$i}}</td>
-                                            <td>{{$row->nama_tugas}}</td>
-                                            <td>{{$row->id_kategori}}</td>
-                                            <td>{{$row->ket_tugas}}</td>
-                                            <td>{{$row->status_tugas}}</td>
-                                            <td><a href="{{route('tugas.edit', $row->id)}}" class='btn btn-primary'>Edit</a></td>
+                                            <td>{{$row->film}}</td>
+                                            <td>{{$row->kode_film}}</td>
+                                            <td>{{$row->judul_film}}</td>
+                                            <td>{{$row->genre_film}}</td>
                                             <td>
-                                                <form action="{{route('tugas.destroy', $row->id)}}" method="post">
+                                            <a href="{{route('film.edit', $row->id)}}" class='btn btn-primary'>Edit</a></td>
+                                            <td>
+
+                                                <form action="{{route('film.destroy', $row->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" type="submit">Hapus</button>
@@ -82,13 +83,6 @@
                                         </tr>
 
                                         @endforeach
-                                       
-                                        <!-- <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>$170,750</td>
-                                        </tr> -->
 
                                     </tbody>
                                 </table>

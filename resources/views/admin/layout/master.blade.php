@@ -6,7 +6,7 @@
 <html class="no-js" lang="en">
 <!--<![endif]-->
 
-<head>a
+<head>
     @include('admin.layout.top')
 </head>
 
