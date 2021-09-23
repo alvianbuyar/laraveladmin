@@ -133,6 +133,7 @@ class FilmController extends Controller
         $film = Film::find($id);
 
         $film->delete();
-        return redirect('datasapi')->with('sukses', 'film berhasil dihapus');
+
+        return redirect('admin\film')->with('sukses', 'FIlm berhasil dihapus');
     }
 }

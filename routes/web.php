@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('front.index');
-});
+})->where('any', '.*');
 
 Auth::routes();
 
@@ -28,6 +28,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
     Route::resource('/kategori', 'Admin\KategoriController');
     Route::resource('/tugas', 'Admin\TugasController');
     Route::resource('/film', 'Admin\FilmController');
-    // Route::resource('/dishub', 'Admin\DishubController');
-    // Route::resource('/pegawai', 'Admin\PegawaiController');
+    Route::resource('/roles', 'Admin\RoleController');
+    Route::resource('/users', 'Admin\UserController');
 });
