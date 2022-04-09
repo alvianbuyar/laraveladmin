@@ -28,9 +28,9 @@ class UserController extends Controller
     public function index()
     {
         //
-        $pagename='Data User';
-        $allUser=User::all();
-        return view('admin.user.index', compact('pagename','allUser'));
+        $pagename = 'Data User';
+        $allUser = User::all();
+        return view('admin.user.index', compact('pagename', 'allUser'));
     }
 
     /**
@@ -41,8 +41,8 @@ class UserController extends Controller
     public function create()
     {
         //
-        $pagename='Tambah User';
-        $allRoles=Role::all();
+        $pagename = 'Tambah User';
+        $allRoles = Role::all();
 
         return view('admin.user.create', compact('pagename', 'allRoles'));
     }
@@ -56,18 +56,18 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[
-            'txtnama_user'=> 'required',
-            'txtemail_user'=>'required|email|unique:users,email',
-            'txtpassword_user'=>'required|same:txtkonfirmasiPassword_user',
-            'role_user'=>'required'
+        $this->validate($request, [
+            'txtnama_user' => 'required',
+            'txtemail_user' => 'required|email|unique:users,email',
+            'txtpassword_user' => 'required|same:txtkonfirmasiPassword_user',
+            'role_user' => 'required'
         ]);
 
-        $user=New User();
+        $user = new User();
 
-        $user->name=$request->txtnama_user;
-        $user->email=$request->txtemail_user;
-        $user->password=Hash::make($request->txtpassword_user);
+        $user->name = $request->txtnama_user;
+        $user->email = $request->txtemail_user;
+        $user->password = Hash::make($request->txtpassword_user);
         $user->save();
 
         $user->assignRole($request->role_user);
@@ -97,7 +97,7 @@ class UserController extends Controller
         $pagename = 'edit data user';
         $user = User::find($id);
         $allRoles = Role::all();
-        $userRole=$user->roles->pluck('id')->all();
+        $userRole = $user->roles->pluck('id')->all();
 
         return view('admin.user.edit', compact('pagename', 'user', 'allRoles', 'userRole'));
     }
@@ -112,18 +112,18 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,[
-            'txtnama_user'=> 'required',
-            'txtemail_user'=>'required|email',
+        $this->validate($request, [
+            'txtnama_user' => 'required',
+            'txtemail_user' => 'required|email',
             // 'txtpassword_user'=>'required|same:txtkonfirmasiPassword_user',
-            'role_user'=>'required'
+            'role_user' => 'required'
         ]);
 
-        $user=User::find($id);
-        $user->name=$request->txtnama_user;
-        $user->email=$request->txtemail_user;
-        if($request->txtpassword_user !=null){
-            $user->password=Hash::make($request->txtpassword_user);
+        $user = User::find($id);
+        $user->name = $request->txtnama_user;
+        $user->email = $request->txtemail_user;
+        if ($request->txtpassword_user != null) {
+            $user->password = Hash::make($request->txtpassword_user);
         }
         $user->update();
 
@@ -143,8 +143,8 @@ class UserController extends Controller
     {
         //
         $user = User::find($id);
-        $user ->delete();
-        
+        $user->delete();
+
         return redirect()->route('users.index')->with('sukses, User Berhasil di hapus');
     }
 }

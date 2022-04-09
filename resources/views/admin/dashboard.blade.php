@@ -23,6 +23,46 @@
 
         <div class="content mt-3">
 
+            <canvas id="myChart" width="400" height="400"></canvas>
+            <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            </script>
+
+
             <div class="col-sm-12">
                 <div class="alert  alert-success alert-dismissible fade show" role="alert">
                     <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert message.
@@ -31,7 +71,6 @@
                     </button>
                 </div>
             </div>
-
 
             <div class="col-sm-6 col-lg-3">
                 <div class="card text-white bg-flat-color-1">
@@ -312,11 +351,11 @@
 
                         <div class="media">
                             <a href="#">
-                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/admin.jpg">
+                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="{{asset('public/admin/images/nice.jpg')}}" alt="User Avatar">
                             </a>
                             <div class="media-body">
-                                <h2 class="text-white display-6">Jim Doe</h2>
-                                <p class="text-light">Project Manager</p>
+                                <h2 class="text-white display-6">Ivan Alvian</h2>
+                                <p class="text-light">Super Admin</p>
                             </div>
                         </div>
                     </div>

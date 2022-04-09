@@ -4,6 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en">
+
 <!--<![endif]-->
 
 <head>
@@ -42,11 +43,10 @@
                     </a>
                 </div>
 
-
+                
                 <div class="login-form">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="form-group">
                             <label>User Name</label>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>

@@ -82,7 +82,7 @@
                             <div class="row form-group">
                                 <div class="col col-md-3"><label for="select" class=" form-control-label">Permission</label></div>
                                 <div class="col-12 col-md-9">
-                                    <select name="optionid_permission[]" id="select" class="mul-select" multiple='true'>
+                                    <select name="optionid_permission[]" id="select" multiple='true'>
 
                                         @foreach($allPermission as $permission)
 

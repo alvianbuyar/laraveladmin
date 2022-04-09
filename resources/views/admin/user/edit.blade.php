@@ -118,13 +118,13 @@
                 </div> 
 
                                     
-                            <script src="{{asset('public/admin/vendors/jquery/dist/jquery.min.js')}}"></script>
-                            <script src="{{asset('public/admin/vendors/popper.js/dist/umd/popper.min.js')}}"></script>
+                <script src="{{asset('public/admin/vendors/jquery/dist/jquery.min.js')}}"></script>
+                <script src="{{asset('public/admin/vendors/popper.js/dist/umd/popper.min.js')}}"></script>
 
-                            <script src="{{asset('public/admin/vendors/jquery-validation/dist/jquery.validate.min.js')}}"></script>
-                            <script src="{{asset('public/admin/vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js')}}"></script>
+                <script src="{{asset('public/admin/vendors/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+                <script src="{{asset('public/admin/vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js')}}"></script>
 
-                            <script src="{{asset('public/admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-                            <script src="{{asset('public/admin/assets/js/main.js')}}"></script>
+                <script src="{{asset('public/admin/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+                <script src="{{asset('public/admin/assets/js/main.js')}}"></script>
 
 @endsection

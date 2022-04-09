@@ -15,9 +15,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $pagename = 'Data Kateegori';
+        $pagename = 'Data Kategori';
         $data = kategori::all();
-        return view('admin.kategori.index', compact('data','pagename'));
+        return view('admin.kategori.index', compact('data', 'pagename'));
     }
 
     /**

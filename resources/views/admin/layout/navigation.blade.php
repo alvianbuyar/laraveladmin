@@ -15,7 +15,6 @@
                         <a href="{{url('/admin')}}"> <i class="menu-icon fa fa-dashboard"></i>Beranda</a>
                         <a href="{{url('/admin/kategori')}}"> <i class="menu-icon fa fa-dashboard"></i>Kategori</a>
                         <a href="{{url('/admin/tugas')}}"> <i class="menu-icon fa fa-dashboard"></i>Tugas</a>
-                        <a href="{{url('/admin/film')}}"> <i class="menu-icon fa fa-dashboard"></i>Film</a>
                         @role('admin')
                         <a href="{{url('/admin/roles')}}"> <i class="menu-icon fa fa-dashboard"></i>Role</a>
                         <a href="{{url('/admin/users')}}"> <i class="menu-icon fa fa-dashboard"></i>User</a>
